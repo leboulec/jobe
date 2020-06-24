@@ -723,7 +723,7 @@ architecture BEHAVIOUR of MUX41 is
 begin
     with SEL select
         Y <=    I(0) when "00",
-                I(0) when "01",
+                I(1) when "01",
                 I(2) when "10",
                 I(3) when "11",
                 '-' when others;
@@ -788,15 +788,7 @@ port map ( I      => I,
 end BEHAVIOUR;
 ''',
     'sourcefilename' : 'prog.vhd',
-    'expect' : {'outcome' : 15 , 'stdout' : "all_in_one.vhd:54:24:@180ns:(assertion warning): Error on I(1)\n"\
-"all_in_one.vhd:54:24:@190ns:(assertion warning): Error on I(1)\n"\
-"all_in_one.vhd:54:24:@220ns:(assertion warning): Error on I(1)\n"\
-"all_in_one.vhd:54:24:@230ns:(assertion warning): Error on I(1)\n"\
-"all_in_one.vhd:54:24:@260ns:(assertion warning): Error on I(1)\n"\
-"all_in_one.vhd:54:24:@270ns:(assertion warning): Error on I(1)\n"\
-"all_in_one.vhd:54:24:@300ns:(assertion warning): Error on I(1)\n"\
-"all_in_one.vhd:54:24:@310ns:(assertion warning): Error on I(1)\n"\
-"all_in_one.vhd:73:16:@640ns:(report note): End of test. Verify that no error was reported.\n"
+    'expect' : {'outcome' : 15 , 'stdout' : "mux41_tb.vhd:50:16:@640ns:(report note): End of test. Verify that no error was reported.\n"
     }
 }
 
