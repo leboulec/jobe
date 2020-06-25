@@ -26,14 +26,14 @@ class VHDL_Task extends Task {
     }
 
     public static function getVersionCommand() {
-        return array('ghdl --version', '/GHDL ([0-9.]*)/');
+        return array('ghdl-gcc --version', '/GHDL ([0-9.]*)/');
     }
 
     public function compile() {
         $src = basename($this->sourceFileName);
         $this->executableFileName = $execFileName = "$src.exe";
         $compileargs = $this->getParam('compileargs');
-        $cmd = "ghdl " . "-c " . implode(' ', $compileargs) . " -o $execFileName $src " . "-e test_bench" ; // The top entity must be named test_bench
+        $cmd = "ghdl-gcc " . "-c " . implode(' ', $compileargs) . " -o $execFileName $src " . "-e test_bench" ; // The top entity must be named test_bench
         list($output, $this->cmpinfo) = $this->run_in_sandbox($cmd);
     }
 
